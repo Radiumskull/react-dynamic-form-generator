@@ -7,7 +7,9 @@ import {
 } from '@material-ui/core'
 
 //Components
-import FormFieldCreator from '../components/FormFieldCreator'
+import FormFieldCreator from '../components/FormFieldCreator/FormFieldCreator'
+
+
 
 const useStyles = makeStyles((theme) => ({
     modal : {
@@ -31,8 +33,8 @@ const FormBase = () => {
         changeModalState(false)
     }
 
-    const addFormField = (fieldType) => {
-        updateFormSkeleton([...formSkeleton, { type: 'text', id: formSkeleton.length === 0 ? 0 : formSkeleton[formSkeleton.length - 1].id + 1 }])
+    const addFormField = (fieldData) => {
+        updateFormSkeleton([...formSkeleton, { ...fieldData, id: formSkeleton.length === 0 ? 0 : formSkeleton[formSkeleton.length - 1].id + 1 }])
         console.log(formSkeleton)
     }
 
